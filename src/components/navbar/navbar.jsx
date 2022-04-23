@@ -5,8 +5,8 @@ class Navbar extends Component {
   render() {
     return (
       <nav className={styles.navbar}>
-        <div className={styles.navbar_home}>
-          <button className={styles.navbar_menu}>
+        <div className={styles.home}>
+          <button className={styles.menu}>
             <i className="fa-solid fa-bars"></i>
           </button>
           <img
@@ -15,19 +15,15 @@ class Navbar extends Component {
             alt="logo"
           />
         </div>
-        <form className={styles.navbar_form}>
-          <input
-            type="text"
-            className={styles.navbar_input}
-            placeholder="Search"
-          />
-          <button className={styles.navbar_search}>
+        <form className={styles.form}>
+          <input type="text" className={styles.input} placeholder="Search" />
+          <button className={styles.searchBtn}>
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
-        <button className={styles.navbar_login}>
+        <button className={styles.login}>
           <i className="fa-solid fa-circle-user"></i>
-          <span className={styles.navbar_login_name}>Log In</span>
+          <span className={styles.login_name}>Log In</span>
         </button>
       </nav>
     );
