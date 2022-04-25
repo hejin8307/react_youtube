@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styles from './videoItem.module.css';
+import * as converter from './converter';
 
 class VideoItem extends Component {
   render() {
@@ -10,11 +11,21 @@ class VideoItem extends Component {
           src={video.snippet.thumbnails.medium.url}
           alt={`image-${video.id}`}
         />
+        <div className={styles.info}>
+          <span className={styles.title}>{video.snippet.title}</span>
+          <span className={styles.channelName}>
+            {video.snippet.channelTitle}
+          </span>
+          <span className={styles.count}>
+            {`조회수 ${converter.viewConverter(video.statistics.viewCount)}`}
+          </span>
+          <span className={styles.publishedDate}>
+            {converter.agoConverter(video.snippet.publishedAt)}
+          </span>
+        </div>
       </li>
     );
   }
 }
 
 export default VideoItem;
-
-//   <h1>{props.video.snippet.thumbnails.default.url}</h1>
