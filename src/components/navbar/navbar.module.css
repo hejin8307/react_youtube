@@ -1,6 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', Arial, sans-serif;
-  /* padding: 0rem 0rem 0.6rem 1.4rem; */
 }
 
 button {
@@ -12,12 +15,11 @@ button {
   position: fixed;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.5rem;
+  width: 100%;
   top: 0;
-  left: 0;
-  right: 0;
-  padding: 0px 16px;
+  padding: 0.1em;
   background-color: white;
+  border-bottom: 2px solid #e5e5e5;
 }
 
 .home {
@@ -29,7 +31,7 @@ button {
   color: #818181;
   background-color: transparent;
   font-size: 1.5rem;
-  margin-right: 0.8rem;
+  margin: 0.5em;
   border: none;
 }
 
@@ -38,56 +40,53 @@ button {
   height: 50px;
 }
 
-.form {
+.searchForm {
   display: flex;
   align-items: center;
-  width: 55%;
-  height: 2.1rem;
-  /* margin-right: 2rem; */
+  width: 50%;
+  height: 2rem;
 }
 
 @media screen and (max-width: 1020px) {
-  .form {
+  .searchForm {
     width: 40%;
   }
 }
 @media screen and (max-width: 670px) {
-  .form {
+  .searchForm {
     width: 30%;
   }
 }
 @media screen and (max-width: 625px) {
-  .form {
+  .searchForm {
     display: none;
   }
 }
 
-.input {
-  height: 2.1rem;
-  margin-left: 1.5rem;
-  padding-right: 35rem;
-  padding-left: 0.3rem;
+.searchInput {
+  width: 100%;
+  height: 2rem;
 }
 
-.input::placeholder {
+.searchInput::placeholder {
   font-size: 1rem;
 }
 
 .searchBtn {
-  font-size: 1.3rem;
+  font-size: 1rem;
   background-color: #f9f9f9;
-  padding: 0.4rem 1rem;
+  padding: 0.37rem 1rem;
   outline: none;
   box-shadow: none;
   border: 1px solid rgb(118, 118, 118);
 }
 
 .login {
-  position: relative;
   font-size: 1.1rem;
   color: #065fd4;
   background-color: transparent;
   padding: 0.5rem 0.8rem;
+  margin: 0rem 1rem;
   border: 1px solid #065fd4;
 }
 

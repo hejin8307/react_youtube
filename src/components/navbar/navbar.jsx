@@ -7,7 +7,7 @@ class Navbar extends Component {
       <nav className={styles.navbar}>
         <div className={styles.home}>
           <button className={styles.menu}>
-            <i className="fa-solid fa-bars"></i>
+            <i className="fas fa-bars"></i>
           </button>
           <img
             className={styles.img}
@@ -15,15 +15,19 @@ class Navbar extends Component {
             alt="logo"
           />
         </div>
-        <form className={styles.form}>
-          <input type="text" className={styles.input} placeholder="Search" />
+        <form className={styles.searchForm}>
+          <input
+            type="text"
+            className={styles.searchInput}
+            placeholder="Search"
+          />
           <button className={styles.searchBtn}>
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
         <button className={styles.login}>
           <i className="fa-solid fa-circle-user"></i>
-          <span className={styles.login_name}>Log In</span>
+          <span className={styles.login_name}>로그인</span>
         </button>
       </nav>
     );
