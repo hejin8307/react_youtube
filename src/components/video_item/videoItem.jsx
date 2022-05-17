@@ -16,12 +16,11 @@ class VideoItem extends Component {
           <span className={styles.channelName}>
             {video.snippet.channelTitle}
           </span>
-          <span className={styles.count}>
-            {`조회수 ${converter.viewConverter(video.statistics.viewCount)}`}
-          </span>
-          <span className={styles.publishedDate}>
-            {converter.agoConverter(video.snippet.publishedAt)}
-          </span>
+          {/* <p className={styles.count}>
+            {`조회수 ${converter.viewConverter(
+              video.statistics.viewCount
+            )} ● ${converter.agoConverter(video.snippet.publishedAt)}`}
+          </p> */}
         </div>
       </li>
     );

@@ -36,7 +36,6 @@ export function agoConverter(publishedAt) {
 }
 
 export function viewConverter(viewCount) {
-  console.log(viewCount);
   if (viewCount < 1000) {
     return viewCount;
   } else if (viewCount < 10000) {

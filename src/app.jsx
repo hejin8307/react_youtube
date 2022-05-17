@@ -3,28 +3,24 @@ import './app.css';
 import Navbar from './components/navbar/navbar';
 import VideoList from './components/video_list/videoList';
 
-function App() {
-  const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+function App({youtube}) {
   const [videos, setVideos] = useState([]);
 
-  useEffect(() => {
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
+  const search = (query) => {
+    youtube
+      .search(query) //
+      .then((videos) => setVideos(videos));
+  };
 
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&maxResults=24&&regionCode=KR&key=${apiKey}`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => setVideos(result.items))
-      .catch((error) => console.log('error', error));
+  useEffect(() => {
+    youtube
+      .mostPopular() //
+      .then((videos) => setVideos(videos));
   }, []);
 
   return (
     <>
-      <Navbar />
+      <Navbar onSearch={search} />
       <VideoList videos={videos} />
     </>
   );
