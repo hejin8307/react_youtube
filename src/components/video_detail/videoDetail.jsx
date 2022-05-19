@@ -1,46 +1,81 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import styles from './videoDetail.module.css';
 import * as converter from '../video_item/converter';
 
 const VideoDetail = ({video, video: {snippet}}) => {
-  // console.log(video);
+  const [open, setOpen] = useState(false);
+
   return (
-    <div>
-      <iframe src={`https://www.youtube.com/embed/${video.id}`} />
-      <p className={styles.tags}>
-        {snippet.tags && snippet.tags.map((tag) => `#${tag} `)}
-      </p>
-      <h2 className={styles.title}>{snippet.title}</h2>
-      <div>
-        <p>
+    <div className={styles.content}>
+      <iframe
+        className={styles.video}
+        src={`https://www.youtube.com/embed/${video.id}`}
+      />
+      <div className={styles.videoInfo}>
+        <p className={styles.tags}>
+          {snippet.tags && snippet.tags.map((tag) => `#${tag} `).slice(0, 5)}
+        </p>
+        <h2 className={styles.title}>
+          {video.snippet.title.includes('&#39;')
+            ? video.snippet.title.replace(/&#39;/g, "'")
+            : video.snippet.title}
+        </h2>
+        <div className={styles.metadata}>
+          {/* <p>{`조회수 ${converter.viewConverter(video.statistics.viewCount)}`}</p> */}
+          {/* <p>●</p> */}
+          <p>{`최초공개: ${converter.dateConverter(
+            video.snippet.publishedAt
+          )}`}</p>
+          {/* <p>
           {`조회수 ${converter.viewConverter(
             video.statistics.viewCount
           )} ● ${converter.dateConverter(video.snippet.publishedAt)}`}
-        </p>
-        <button>
-          <i className="fa-solid fa-thumbs-up"></i>
-          <p>{video.statistics.likeCount}</p>
-        </button>
-        <button>
-          <i className="fa-solid fa-thumbs-down"></i>
-          <p>싫어요</p>
-        </button>
-        <button>
-          <i className="fa-solid fa-share"></i>
-          <p>공유</p>
-        </button>
-        <button>
-          <i className="fa-solid fa-bookmark"></i>
-          <p>저장</p>
-        </button>
+        </p> */}
+          <div>
+            {/* <br /> */}
+            <button>
+              <i className="fa-solid fa-thumbs-up"></i>&nbsp;
+              {/* <p>{video.statistics.likeCount}</p> */}
+              좋아요
+            </button>
+            <button>
+              <i className="fa-solid fa-thumbs-down"></i>&nbsp; 싫어요
+            </button>
+            <button>
+              <i className="fa-solid fa-share"></i>&nbsp; 공유
+            </button>
+            <button>
+              <i className="fa-solid fa-bookmark"></i>&nbsp; 저장
+            </button>
+            <button>
+              <i className="fa-solid fa-ellipsis"></i>
+            </button>
+          </div>
+        </div>
       </div>
       <div>
-        <div>
-          <p>{snippet.channelTitle}</p>
-          <button>구독</button>
+        <div className={styles.channelInfo}>
+          <div>
+            <p>{snippet.channelTitle}</p>
+            <button>구독</button>
+          </div>
+          {/* <p className={styles.description}>
+            {snippet.description}
+          </p>
+          <button className={styles.moreBtn} onClick={handleMoreBtn}>
+            더보기
+          </button> */}
+          <pre
+            className={`${styles.description} ${
+              open ? styles.open : styles.close
+            }`}
+          >
+            {snippet.description}
+          </pre>
+          <button className={styles.moreBtn} onClick={() => setOpen(!open)}>
+            {open ? '간략히' : '더보기'}
+          </button>
         </div>
-        <p>{snippet.description}</p>
-        <button>더보기</button>
       </div>
     </div>
   );

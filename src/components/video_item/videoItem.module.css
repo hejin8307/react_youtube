@@ -3,6 +3,7 @@ p {
 }
 
 .video {
+  padding-bottom: 0.5rem;
   cursor: pointer;
 }
 
@@ -23,7 +24,6 @@ p {
 .video.list {
   display: flex;
   width: 100%;
-  padding-bottom: 0.5rem;
 }
 
 .video.list .img {
@@ -36,10 +36,8 @@ p {
 }
 
 /* grid 일때 */
-
 .video.grid {
   text-align: center;
-  padding: 0.5rem;
   /* max-width: 20rem; */
 }
 

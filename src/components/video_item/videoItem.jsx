@@ -16,13 +16,17 @@ const VideoItem = ({video, onSelect, display}) => {
         alt={`image-${video.id}`}
       />
       <div className={styles.info}>
-        <p className={styles.title}>{video.snippet.title}</p>
+        <p className={styles.title}>
+          {video.snippet.title.includes('&#39;')
+            ? video.snippet.title.replace(/&#39;/g, "'")
+            : video.snippet.title}
+        </p>
         <p className={styles.channelName}>{video.snippet.channelTitle}</p>
-        <p className={styles.count}>
+        {/* <p className={styles.count}>
           {`조회수 ${converter.viewConverter(
             video.statistics.viewCount
           )} ● ${converter.agoConverter(video.snippet.publishedAt)}`}
-        </p>
+        </p> */}
       </div>
     </li>
   );
