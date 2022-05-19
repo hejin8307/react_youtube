@@ -1,11 +1,15 @@
-body {
-  padding-top: 50px;
-}
-
 .videoList {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #f9f9f9;
+  list-style: none;
+  /* background-color: #f9f9f9; */
+  background-color: skyblue;
+  padding-left: 0;
+}
+
+.videoList.list {
+  flex-direction: column;
+  width: 100%;
 }

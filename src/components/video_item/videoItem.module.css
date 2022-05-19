@@ -1,23 +1,12 @@
+p {
+  margin: 0;
+}
+
 .video {
-  list-style: none;
-  text-align: center;
-  flex: 1 1;
-  padding: 0.5rem;
-  max-width: 20rem;
   cursor: pointer;
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  width: 320px;
-}
-
 .title {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  width: 320px;
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
@@ -25,12 +14,52 @@
   -webkit-box-orient: vertical;
 }
 
-.channelName {
+.count {
+  color: gray;
+  padding-top: 0.2rem;
+}
+
+/* list 일때 */
+.video.list {
+  display: flex;
+  width: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.video.list .img {
+  width: 40%;
+}
+
+.video.list .info {
+  padding-left: 0.8rem;
   font-size: 0.8rem;
 }
 
-.count {
-  /* display: inline-block; */
+/* grid 일때 */
+
+.video.grid {
+  text-align: center;
+  padding: 0.5rem;
+  /* max-width: 20rem; */
+}
+
+.video.grid .info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 320px;
+}
+
+.video.grid .title {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  /* width: 320px; */
+}
+
+.video.grid .channelName {
+  font-size: 0.8rem;
+}
+
+.video.grid .count {
   font-size: 0.7rem;
-  color: gray;
 }

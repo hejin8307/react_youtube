@@ -35,6 +35,15 @@ export function agoConverter(publishedAt) {
   return `${Math.floor(years)}년 전`;
 }
 
+export function dateConverter(publishedAt) {
+  const publishedDate = new Date(publishedAt);
+  // console.log(publishedDate);
+  const year = publishedDate.getFullYear();
+  const month = publishedDate.getMonth() + 1;
+  const date = publishedDate.getDate();
+  return `${year}. ${month}. ${date}.`;
+}
+
 export function viewConverter(viewCount) {
   if (viewCount < 1000) {
     return viewCount;
