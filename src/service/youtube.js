@@ -1,28 +1,29 @@
 class Youtube {
-  constructor(apiKey) {
-    this.apiKey = apiKey;
-    this.getRequestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
+  constructor(httpClient) {
+    this.youtube = httpClient;
   }
 
   async mostPopular() {
-    const response = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&maxResults=24&&regionCode=KR&key=${this.apiKey}`,
-      this.getRequestOptions
-    );
-    const result = await response.json();
-    return result.items;
+    const response = await this.youtube.get('videos', {
+      params: {
+        part: 'snippet, statistics',
+        chart: 'mostPopular',
+        maxResults: 24,
+      },
+    });
+    return response.data.items;
   }
 
   async search(query) {
-    const response = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&type=video&key=${this.apiKey}`,
-      this.getRequestOptions
-    );
-    const result = await response.json();
-    return result.items.map((item) => ({...item, id: item.id.videoId}));
+    const response = await this.youtube.get('videos', {
+      params: {
+        part: 'snippet',
+        maxResults: 24,
+        type: 'video',
+        q: query,
+      },
+    });
+    return response.data.items.map((item) => ({...item, id: item.id.videoId}));
   }
 }
 
