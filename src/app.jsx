@@ -12,11 +12,29 @@ function App({youtube}) {
     setSelectedVideo(video);
   };
 
+  // const search = (query) => {
+  //   youtube
+  //     .search(query) //
+  //     .then((videos) => {
+  //       setVideos(videos);
+  //       setSelectedVideo(null);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   youtube
+  //     .mostPopular() //
+  //     .then((videos) => setVideos(videos));
+  // }, [youtube]);
+
   const search = (query) => {
     youtube
       .search(query) //
       .then((videos) => {
-        setVideos(videos);
+        const promises = [];
+        Promise.all(youtube.channel(videos, promises)).then(() =>
+          setVideos(videos)
+        );
         setSelectedVideo(null);
       });
   };
@@ -24,8 +42,13 @@ function App({youtube}) {
   useEffect(() => {
     youtube
       .mostPopular() //
-      .then((videos) => setVideos(videos));
-  }, []);
+      .then((videos) => {
+        const promises = [];
+        Promise.all(youtube.channel(videos, promises)).then(() =>
+          setVideos(videos)
+        );
+      });
+  }, [youtube]);
 
   return (
     <div className={styles.app}>

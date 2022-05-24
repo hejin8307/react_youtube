@@ -1,3 +1,7 @@
+pre {
+  margin: 0;
+}
+
 .content {
   padding-top: 24px;
   margin-left: 24px;
@@ -41,17 +45,47 @@
   padding-left: 0.7rem;
 }
 
-.channelInfo div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.img {
+  width: 2.5rem;
+  border-radius: 50%;
+  margin-right: 0.8rem;
 }
 
-.channelInfo div button {
+.channelInfo div {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.channelInfo .channelTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.channelTitle p:first-child {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.channelTitle p:nth-child(2) {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.subscribeBtn {
+  color: white;
   background-color: #c00;
   border: 0;
   border-radius: 5%;
   padding: 0.5rem 1rem;
+  width: 4.5rem;
+}
+
+.videoDescription {
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1.2rem 3.3rem;
 }
 
 .description {

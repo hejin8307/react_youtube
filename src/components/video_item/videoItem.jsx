@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './videoItem.module.css';
-import * as converter from './converter';
+import * as converter from '../../converter';
 
 const VideoItem = ({video, onSelect, display}) => {
   const displayType = display === 'list' ? styles.list : styles.grid;

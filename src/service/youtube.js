@@ -26,16 +26,20 @@ class Youtube {
     return response.data.items.map((item) => ({...item, id: item.id.videoId}));
   }
 
-  async fetchVideoData(videoId) {
-    const response = await this.youtube.get('videos', {
-      params: {
-        part: 'snippet, statistics',
-        id: videoId,
-        fields:
-          'items(id,snippet(publishedAt,title,description,thumbnails.medium.url,thumbnails.medium.url,tags),statistics(viewCount,likeCount,favoriteCount,commentCount))',
-      },
-    });
-    return response.data.items[0];
+  channel(videos, promises) {
+    for (let i = 0; i < videos.length; i++) {
+      const response = this.youtube
+        .get('channels', {
+          params: {
+            part: 'snippet, statistics',
+            id: videos[i].snippet.channelId,
+          },
+        })
+        .then((result) => result.data.items[0])
+        .then((item) => (videos[i].channel = item));
+      promises.push(response);
+    }
+    return promises;
   }
 }
 

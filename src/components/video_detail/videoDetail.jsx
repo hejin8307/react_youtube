@@ -1,15 +1,16 @@
 import React, {useRef, useState} from 'react';
 import styles from './videoDetail.module.css';
-import * as converter from '../video_item/converter';
+import * as converter from '../../converter';
 
 const VideoDetail = ({video, video: {snippet}}) => {
   const [open, setOpen] = useState(false);
+  console.log(video);
 
   return (
     <div className={styles.content}>
       <iframe
         className={styles.video}
-        src={`https://www.youtube.com/embed/${video.id}`}
+        src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
       />
       <div className={styles.videoInfo}>
         <p className={styles.tags}>
@@ -56,25 +57,36 @@ const VideoDetail = ({video, video: {snippet}}) => {
       <div>
         <div className={styles.channelInfo}>
           <div>
-            <p>{snippet.channelTitle}</p>
-            <button>구독</button>
+            <div>
+              <img
+                className={styles.img}
+                src={video.channel.snippet.thumbnails.medium.url}
+                alt={`channelThumbnail`}
+              />
+              <div className={styles.channelTitle}>
+                <p>{snippet.channelTitle}</p>
+                <p>
+                  {video.channel.statistics.subscriberCount &&
+                    `구독자 ${converter.subscriberConverter(
+                      video.channel.statistics.subscriberCount
+                    )}`}
+                </p>
+              </div>
+            </div>
+            <button className={styles.subscribeBtn}>구독</button>
           </div>
-          {/* <p className={styles.description}>
-            {snippet.description}
-          </p>
-          <button className={styles.moreBtn} onClick={handleMoreBtn}>
-            더보기
-          </button> */}
-          <pre
-            className={`${styles.description} ${
-              open ? styles.open : styles.close
-            }`}
-          >
-            {snippet.description}
-          </pre>
-          <button className={styles.moreBtn} onClick={() => setOpen(!open)}>
-            {open ? '간략히' : '더보기'}
-          </button>
+          <div className={styles.videoDescription}>
+            <pre
+              className={`${styles.description} ${
+                open ? styles.open : styles.close
+              }`}
+            >
+              {snippet.description}
+            </pre>
+            <button className={styles.moreBtn} onClick={() => setOpen(!open)}>
+              {open ? '간략히' : '더보기'}
+            </button>
+          </div>
         </div>
       </div>
     </div>

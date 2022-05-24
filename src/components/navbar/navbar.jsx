@@ -32,6 +32,7 @@ const Navbar = ({onSearch}) => {
           type="text"
           className={styles.searchInput}
           placeholder="Search"
+          spellCheck="false"
           onKeyPress={onKeyPress}
         />
         <button className={styles.searchBtn} onClick={onClick}>
