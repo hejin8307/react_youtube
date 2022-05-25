@@ -41,6 +41,22 @@ class Youtube {
     }
     return promises;
   }
+
+  countData(search, newArr) {
+    for (let i = 0; i < search.length; i++) {
+      const response = this.youtube
+        .get('videos', {
+          params: {
+            part: 'statistics',
+            id: search[i].id,
+          },
+        })
+        .then((result) => result.data.items[0])
+        .then((item) => (search[i].countData = item));
+      newArr.push(response);
+    }
+    return newArr;
+  }
 }
 
 export default Youtube;

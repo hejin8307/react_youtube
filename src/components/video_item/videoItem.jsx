@@ -22,13 +22,22 @@ const VideoItem = ({video, onSelect, display}) => {
         alt={`image-${video.id}`}
       />
       <div className={styles.info}>
-        <p className={styles.title}>{he.decode(video.snippet.title)}</p>
-        <p className={styles.channelName}>{video.snippet.channelTitle}</p>
-        {/* <p className={styles.count}>
-          {`조회수 ${converter.viewConverter(
-            video.statistics.viewCount
-          )} ● ${converter.agoConverter(video.snippet.publishedAt)}`}
-        </p> */}
+        <div>
+          <img
+            className={styles.channelImg}
+            src={video.channel.snippet.thumbnails.medium.url}
+            alt={`channelThumbnail`}
+          />
+          <p className={styles.title}>{he.decode(video.snippet.title)}</p>
+        </div>
+        <div>
+          <p className={styles.channelName}>{video.snippet.channelTitle}</p>
+          {/* <p className={styles.count}>
+            {`조회수 ${converter.viewConverter(
+              video.statistics.viewCount
+            )} ● ${converter.agoConverter(video.snippet.publishedAt)}`}
+          </p> */}
+        </div>
       </div>
     </li>
   );

@@ -7,6 +7,17 @@ p {
   cursor: pointer;
 }
 
+.info div {
+  display: flex;
+  align-items: center;
+}
+
+.channelImg {
+  width: 2.5rem;
+  border-radius: 50%;
+  margin-right: 0.8rem;
+}
+
 .title {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -35,6 +46,10 @@ p {
   font-size: 0.8rem;
 }
 
+.video.list .channelImg {
+  display: none;
+}
+
 /* grid 일때 */
 .video.grid {
   text-align: center;
@@ -50,8 +65,11 @@ p {
 
 .video.grid .title {
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
   /* width: 320px; */
+}
+
+.video.grid .info div:nth-child(2) {
+  margin-left: 3.3rem;
 }
 
 .video.grid .channelName {
