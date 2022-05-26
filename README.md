@@ -2,12 +2,17 @@
 
 <p align="center">
   
-  <img src="https://img.shields.io/badge/Youtube-F54133" />
-  <img src="https://img.shields.io/badge/Javascript-yellow" />
-  <img src="https://img.shields.io/badge/HTML-339933" />
-  <img src="https://img.shields.io/badge/CSS-61DAFB" />
+  <img src="https://img.shields.io/badge/Youtube-FF0000" />
+  <img src="https://img.shields.io/badge/HTML-E34F26" />
+  <img src="https://img.shields.io/badge/CSS-1572B6" />
   <img src="https://img.shields.io/badge/PostCSS-DD3A0A" />
-  <img src="https://img.shields.io/badge/React-096DDC" />
+  <img src="https://img.shields.io/badge/Javascript-F7DF1E" />
+  <img src="https://img.shields.io/badge/React-61DAFB" />
+  <img src="https://img.shields.io/badge/Postman-FF6C37" />
+  <img src="https://img.shields.io/badge/Yarn-2C8EBB" />
+  <img src="https://img.shields.io/badge/Netlify-00C7B7" />
+
+  
    
 </p>
 
