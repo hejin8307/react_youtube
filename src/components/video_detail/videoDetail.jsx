@@ -1,8 +1,13 @@
 import React, {useRef, useState} from 'react';
 import styles from './videoDetail.module.css';
+import he from 'he';
 import * as converter from '../../converter';
 
 const VideoDetail = ({video, video: {snippet}}) => {
+  const renderHTML = (escapedHTML: string) =>
+    React.createElement('div', {
+      dangerouslySetInnerHTML: {__html: escapedHTML},
+    });
   const [open, setOpen] = useState(false);
 
   return (
@@ -15,11 +20,7 @@ const VideoDetail = ({video, video: {snippet}}) => {
         <p className={styles.tags}>
           {snippet.tags && snippet.tags.map((tag) => `#${tag} `).slice(0, 5)}
         </p>
-        <h2 className={styles.title}>
-          {video.snippet.title.includes('&#39;')
-            ? video.snippet.title.replace(/&#39;/g, "'")
-            : video.snippet.title}
-        </h2>
+        <h2 className={styles.title}>{he.decode(video.snippet.title)}</h2>
         <div className={styles.metadata}>
           {/* <p>{`조회수 ${converter.viewConverter(
             video.statistics.viewCount
