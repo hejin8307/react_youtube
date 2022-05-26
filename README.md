@@ -48,3 +48,8 @@
 
 ## 💻 URL
 <p> soon </p>
+
+### Todo
+- connect viewCount
+- use memo
+- React Router
