@@ -12,6 +12,12 @@ p {
   align-items: center;
 }
 
+.info div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .channelImg {
   width: 2.5rem;
   border-radius: 50%;
@@ -27,8 +33,8 @@ p {
 }
 
 .count {
+  font-size: 0.7rem;
   color: gray;
-  padding-top: 0.2rem;
 }
 
 /* list 일때 */
@@ -48,6 +54,10 @@ p {
 
 .video.list .channelImg {
   display: none;
+}
+
+.video.list .title {
+  margin-bottom: 0.5rem;
 }
 
 /* grid 일때 */
@@ -77,5 +87,5 @@ p {
 }
 
 .video.grid .count {
-  font-size: 0.7rem;
+  padding-top: 0.2rem;
 }

@@ -4,7 +4,6 @@ import * as converter from '../../converter';
 
 const VideoDetail = ({video, video: {snippet}}) => {
   const [open, setOpen] = useState(false);
-  console.log(video);
 
   return (
     <div className={styles.content}>
@@ -22,7 +21,9 @@ const VideoDetail = ({video, video: {snippet}}) => {
             : video.snippet.title}
         </h2>
         <div className={styles.metadata}>
-          {/* <p>{`조회수 ${converter.viewConverter(video.statistics.viewCount)}`}</p> */}
+          {/* <p>{`조회수 ${converter.viewConverter(
+            video.statistics.viewCount
+          )}`}</p> */}
           {/* <p>●</p> */}
           <p>{`최초공개: ${converter.dateConverter(
             video.snippet.publishedAt
@@ -33,7 +34,6 @@ const VideoDetail = ({video, video: {snippet}}) => {
           )} ● ${converter.dateConverter(video.snippet.publishedAt)}`}
         </p> */}
           <div>
-            {/* <br /> */}
             <button>
               <i className="fa-solid fa-thumbs-up"></i>&nbsp;
               {/* <p>{video.statistics.likeCount}</p> */}
